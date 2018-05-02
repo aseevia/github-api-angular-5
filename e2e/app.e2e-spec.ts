@@ -9,6 +9,6 @@ describe('angular-issues-page App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getParagraphText()).toEqual('Github issues page in Angular 5');
   });
 });

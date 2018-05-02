@@ -1,0 +1,33 @@
+@import '~sass/variables';
+@import '~sass/mixins';
+
+.#{$prefix} {
+    &-container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    &-header {
+      padding: 10px 0;
+      border-top: 3px solid getColor(red);
+      border-bottom: 1px solid getColor(gray-light);
+      background-color: #fafafb;
+      &__in {
+        padding: 0 10px;
+        @include media-sm-to{
+          text-align: center;
+        }
+      }
+      &__title {
+        display: inline-block;
+        vertical-align: middle;
+        font-weight: bold;
+        @include media-sm-to{
+          display: block;
+        }
+      }
+      &__logo {
+        width: 50px;
+        vertical-align: middle;
+      }
+    }
+  }

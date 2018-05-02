@@ -1,0 +1,37 @@
+<div *ngIf="issue" class="issueDetail">
+<a (click)="goBack()" class='issueDetail__btn'>◀ Back to list</a>
+  <h2>Issue id # {{ issue.number }} details</h2>
+  <a href="{{ issue.html_url }}">{{ issue.title }}</a>
+  <app-issue-tags [labels]="issue.labels"></app-issue-tags>
+
+  <ul class="issueDetail__list">
+    <li class="issueDetail__item">
+      <div class="issueDetail__item-head">
+        <div class="issueDetail__item-avatar">
+          <div class="issueDetail__item-avatar-pic">
+            <img src='{{issue.user.avatar_url}}'>
+          </div>
+        </div>
+        <div class="issueDetail__item-caption">
+          <a href="{{ issue.user.html_url }}">{{ issue.user.login }}</a> created on {{ issue.created_at | date:'fullDate' }}
+        </div>
+      </div>
+      <markdown *ngIf="issue.body" [data]="issue.body" class="issueDetail__item-body"></markdown>
+    </li>
+
+    <li *ngFor="let comment of comments" class="issueDetail__item">
+      <div class="issueDetail__item-head">
+        <div class="issueDetail__item-avatar">
+          <div class="issueDetail__item-avatar-pic">
+            <img src='{{comment.user.avatar_url}}'>
+          </div>
+        </div>
+        <div class="issueDetail__item-caption">
+          <a href="{{ comment.user.html_url }}">{{ comment.user.login }}</a> commented on {{ comment.created_at | date:'fullDate' }}
+        </div>
+      </div>
+      <markdown *ngIf="comment.body" [data]="comment.body" class="issueDetail__item-body"></markdown>
+    </li>
+  </ul>
+
+</div>

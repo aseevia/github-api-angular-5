@@ -1,0 +1,25 @@
+$prefix: 'gi'; // Global project prefix 
+
+$color-scheme: (
+    "white": #ffffff,
+    "black": #000000,
+    "gray": #C9C9C9,
+    "gray-light": rgba(12, 13, 14, 0.15),
+    "red": #C3002F,
+    "yellow": #fffbec
+);
+
+@function getColor($name) {
+    @return map_get($color-scheme, quote($name));
+}
+
+$media: (
+    "xs": 320px,
+    "sm": 580px,
+    "md": 960px,
+    "lg": 1200px
+);
+
+@function breakpoint($name) {
+    @return map_get($media, quote($name));
+}

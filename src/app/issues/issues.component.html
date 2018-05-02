@@ -1,0 +1,36 @@
+<div class="issues">
+  <div class="issues__in">
+    <h2 class="issues__title">List of Github issues for
+      <a href="https://github.com/angular/">angular</a> /
+      <a href="https://github.com/angular/angular.js">angular.js</a>:
+    </h2>
+    <div class="issues__pages issues__item">
+      <a *ngIf="pageLinks && pageLinks.first" (click)="getIssues(pageLinks.first)">◀ first</a>
+      <a *ngIf="pageLinks && pageLinks.prev" (click)="getIssues(pageLinks.prev)">◀ prev</a>
+      <a *ngIf="pageLinks && pageLinks.next" (click)="getIssues(pageLinks.next)">next ▶</a>
+      <a *ngIf="pageLinks && pageLinks.last" (click)="getIssues(pageLinks.last)">last ▶</a>
+    </div>
+    <ul class="issues__list">
+      <li *ngFor="let issue of issues" class="issues__item clearfix">
+        <div class="issues__avatar">
+          <div class="issues__avatar-pic">
+            <img src='{{issue.user.avatar_url}}'>
+          </div>
+        </div>
+        <div class="issues__summary">
+          <a routerLink="/detail/{{issue.number}}"> {{ issue.title }}</a>
+          <app-issue-tags [labels]="issue.labels"></app-issue-tags>
+          <div class="issues__id">
+            #{{issue.number}} by
+            <a href="{{ issue.user.html_url }}">{{ issue.user.login }}</a> created on {{ issue.created_at | date:'fullDate' }}
+            <svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+              <path fill-rule="evenodd" d="M14 1H2c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1h2v3.5L7.5 11H14c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zm0 9H7l-2 2v-2H2V2h12v8z"></path>
+            </svg>
+            {{issue.comments}}
+          </div>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+</div>

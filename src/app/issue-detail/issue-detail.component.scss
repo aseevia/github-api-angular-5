@@ -1,0 +1,96 @@
+@import '~sass/variables';
+@import '~sass/mixins';
+.issueDetail {
+  padding: 10px;
+  &__btn {
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  &__list {
+    list-style: none;
+    padding: 0;
+  }
+  &__item {
+    border-radius: 6px;
+    margin-bottom: 1em;
+    overflow: hidden;
+    &-avatar {
+      display: table-cell;
+      vertical-align: middle;
+      width: 10%;
+      text-align: center;
+      &-pic {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        box-shadow: 0 5px 15px 0 rgba(black, 0.25);
+        overflow: hidden;
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+    &-caption {
+      display: table-cell;
+      vertical-align: middle;
+      width: 90%;
+      padding-left: 10px;
+    }
+    &-head {
+      display: table;
+      width: 100%;
+      background-color: getColor(gray);
+      padding: 5px 10px;
+    }
+    &-body {
+      display: block;
+      padding: 10px;
+      font-size: 13px;
+      background-color: #f6f8fa;
+      /* 
+       * Below goes some browser specific code to prevent
+       * cutting of long words and links.
+       */
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      -ms-word-break: break-all;
+      /* This is the dangerous one in WebKit, as it breaks things wherever */
+      word-break: break-all;
+      /* Instead use this non-standard one: */
+      word-break: break-word;
+      /* Adds a hyphen where the word breaks, if supported (No Blink) */
+      -ms-hyphens: auto;
+      -moz-hyphens: auto;
+      -webkit-hyphens: auto;
+      hyphens: auto;
+    }
+  }
+}
+
+#{'/deep/'} {
+  code:not([class*="language-"]) {
+    background: getColor(yellow);
+    color: #dd4a68;
+  }
+  ol,
+  ul {
+    margin: 10px 0;
+    padding-left: 30px;
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  strong {
+    font-weight: bold;
+  }
+  pre {
+    background: getColor(yellow);
+    overflow: auto;
+  }
+  h2 {
+    font-weight: bold;
+  }
+}
